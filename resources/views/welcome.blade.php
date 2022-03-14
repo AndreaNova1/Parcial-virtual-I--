@@ -32,6 +32,9 @@
         <li class="nav-link">
             <a  href=" {{ url('/alumno/create') }}" class="btn btn-outline-btn bg-info text-white" type="submit">Creacion de Datos</a>
         </li>
+        <li class="nav-link">
+            <a  href=" {{ url('/categoria') }}" class="btn btn-outline-btn bg-info text-white" type="submit">Categoria</a>
+        </li>
     </div>
 </nav>
 <div class="container mt-5"> @yield('content')

@@ -29,3 +29,4 @@ Route::resource('alumno', AlumnoController::class);
 //Route::group(['middleware'=>'auth'], function (){
 //Route::get('/home', [AlumnoController::class, 'index'])->name('home');
 //});
+Route::get('/categoria', [\App\Http\Controllers\CategoriaController::class, 'index']);

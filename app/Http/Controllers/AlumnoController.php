@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 
 use App\Models\Alumno;
+use App\Models\Categoria;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -38,6 +39,22 @@ class AlumnoController extends Controller
      */
     public function store(Request $request)
     {
+        $campos=[
+            'Carne'=>'required|string|max:100',
+            'Nombre'=>'required|string|max:100',
+            'Alias'=>'required|string|max:100',
+            'Foto'=>'required|max:10000|mimes:jpeg,png,jpg',
+            'Correo'=>'required|email',
+            'Fecha_nacimiento'=>'required|date|max:100',
+            'Telefono'=>'required|string|max:100',
+        ];
+        $mensaje=[
+            'required'=>'El :attribute es requerido',
+            'Foto.requerid'=>'La foto es requerida'
+        ];
+
+        $this->validate($request, $campos,$mensaje);
+
         //$datosAlumno = $request->all();
         $datosAlumno = request()->except('_token');
         Alumno::insert($datosAlumno);
@@ -55,9 +72,10 @@ class AlumnoController extends Controller
      * @param  \App\Models\Alumno  $alumno
      * @return \Illuminate\Http\Response
      */
-    public function show(Alumno $alumno)
+    public function show(Request $request)
     {
-        //
+       //
+
     }
 
     /**
